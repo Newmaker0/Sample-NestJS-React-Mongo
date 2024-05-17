@@ -1,6 +1,3 @@
-Sure, here is the complete `README.md` file content:
-
-````markdown
 # Project Setup and Usage Guide
 
 ## Prerequisites
@@ -10,7 +7,7 @@ Make sure you have Docker and Docker Compose installed on your system.
 ## Running the Project
 
 1. Clone the repository to your local machine.
-2. Navigate to the project directory.
+2. Navigate to the project root directory.
 
 ### Start the Services
 
@@ -19,7 +16,6 @@ Run the following command to start all the services:
 ```sh
 docker-compose up --build
 ```
-````
 
 This command will build and start the following services:
 
@@ -57,7 +53,7 @@ Replace `"your-username"` and `"your-password"` with the username and password y
 curl --location 'http://localhost:3003/user/create' \
 --header 'Content-Type: application/json' \
 --data '{
-    "username": "pedro",
+    "username": "you",
     "password": "admin"
 }'
 ```
@@ -67,11 +63,3 @@ curl --location 'http://localhost:3003/user/create' \
 - The MongoDB service is configured with the following credentials:
   - Username: `root`
   - Password: `password`
-- The backend API is accessible at [http://localhost:3003](http://localhost:3003).
-
-Feel free to explore the application and make any necessary modifications.
-
-```
-
-You can save this content directly in a `README.md` file in your project's root directory for GitHub.
-```
