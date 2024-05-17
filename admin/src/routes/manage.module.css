@@ -1,0 +1,21 @@
+.socialMediaManagementContainer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1em;
+}
+.socialMediaListContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+.addSocialMediaContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  margin-right: auto;
+}
+.addPlatformButton{
+  min-width: max-content;
+}

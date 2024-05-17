@@ -1,0 +1,59 @@
+services:
+  mongo:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3003"
+    depends_on:
+      mongo:
+        condition: service_started
+    networks:
+      - app-network
+
+  frontend:
+    image: oven/bun:1
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:3000"
+    command: sh -c "bun install && bun run dev"
+    depends_on:
+      api:
+        condition: service_started
+    networks:
+      - app-network
+
+  admin:
+    image: oven/bun:1
+    working_dir: /app
+    volumes:
+      - ./admin:/app
+    ports:
+      - "3001:3001"
+    command: sh -c "bun install && bun run dev"
+    depends_on:
+      api:
+        condition: service_started
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:
+
+networks:
+  app-network:
+    driver: bridge

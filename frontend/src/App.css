@@ -1,0 +1,9 @@
+
+.social-media-identity-verifier{
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  width: 700px;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
